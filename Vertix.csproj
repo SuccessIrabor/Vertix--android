@@ -38,6 +38,11 @@
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -127,9 +132,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\dimens.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\layout\list_group.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +139,17 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\apps.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ic_search.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\searchview.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\searchable.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

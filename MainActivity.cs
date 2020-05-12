@@ -1,19 +1,23 @@
 ﻿using System;
 using Android;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Support.V4.View;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Vertix;
+using Xamarin.Essentials;
 
 namespace Vertix
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     public class MainActivity : AppCompatActivity, NavigationView.IOnNavigationItemSelectedListener,
         ExpandableListView.IOnGroupClickListener, ExpandableListView.IOnChildClickListener
     {
@@ -85,16 +89,30 @@ namespace Vertix
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.menu_main, menu);
+
+            SearchManager searchManager = (SearchManager) GetSystemService(Context.SearchService);
+
+            menu.FindItem(Resource.Id.search).SetActionView(Resource.Layout.searchview);
+
+            //Android.Widget.SearchView searchView = (Android.Widget.SearchView) menu.FindItem(Resource.Id.search).ActionView;
+
+            //SearchView searchView = FindViewById<SearchView>(Resource.Id.search);
+
+            IMenuItem search = menu.FindItem(Resource.Id.search);
+            Android.Support.V7.Widget.SearchView searchView = search.ActionView.JavaCast<Android.Support.V7.Widget.SearchView>();
+
+            searchView.SetSearchableInfo(searchManager.GetSearchableInfo(ComponentName));
+
             return true;
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
-            {
-                return true;
-            }
+            //if (id == Resource.Id.action_settings)
+            //{
+            //    return true;
+            //}
 
             return base.OnOptionsItemSelected(item);
         }
