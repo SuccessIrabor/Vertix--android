@@ -13,11 +13,19 @@ using Android.Support.V7.App;
 
 namespace Vertix
 {
-    [Activity(Label = "SearchActivity", LaunchMode = Android.Content.PM.LaunchMode.SingleTop)]
+    [Activity(Label = "@string/search_activity", LaunchMode = Android.Content.PM.LaunchMode.SingleTop)]
     [MetaData("android.app.searchable", Resource = "@xml/searchable")]
     [IntentFilter(new[] {Intent.ActionSearch})]
     public class SearchActivity : AppCompatActivity
     {
+        public static Java.Lang.Class JavaType
+        {
+            get
+            {
+                return Java.Lang.Class.FromType(typeof(SearchActivity));
+            }
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

@@ -95,18 +95,27 @@ namespace Vertix
 
             menu.FindItem(Resource.Id.search).SetActionView(Resource.Layout.searchview);
 
-            //Android.Widget.SearchView searchView = (Android.Widget.SearchView) menu.FindItem(Resource.Id.search).ActionView;
-
-            //SearchView searchView = FindViewById<SearchView>(Resource.Id.search);
-
             IMenuItem search = menu.FindItem(Resource.Id.search);
             Android.Support.V7.Widget.SearchView searchView = search.ActionView.JavaCast<Android.Support.V7.Widget.SearchView>();
 
-            searchView.SetSearchableInfo(searchManager.GetSearchableInfo(new ComponentName(this, Java.Lang.Class.FromType(typeof(SearchActivity)))));
+            searchView.SetSearchableInfo(searchManager.GetSearchableInfo(new ComponentName(this, SearchActivity.JavaType)));
+
+            /*
+             * TODO: set query hint by search context
+             * searchView.QueryHint = null;
+             */
+
+            Intent serviceIntent = new Intent(this, Vertix.SearchService.JavaType);
+            ServiceConnection serviceConnection = new ServiceConnection();
+            BindService(serviceIntent, serviceConnection, Bind.AutoCreate);
 
             //searchView.SetOnQueryTextListener();
 
             return true;
+        }
+
+        public Class GetJavaClass(Type type) {
+            return Class.FromType(type);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

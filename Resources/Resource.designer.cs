@@ -4390,14 +4390,23 @@ namespace Vertix
 			// aapt resource value: 0x7F0E0039
 			public const int search = 2131623993;
 			
+			// aapt resource value: 0x7F0E003D
+			public const int searchable = 2131623997;
+			
 			// aapt resource value: 0x7F0E003A
-			public const int search_menu_title = 2131623994;
+			public const int search_activity = 2131623994;
 			
 			// aapt resource value: 0x7F0E003B
-			public const int status_bar_notification_info_overflow = 2131623995;
+			public const int search_menu_title = 2131623995;
 			
 			// aapt resource value: 0x7F0E003C
-			public const int youtube = 2131623996;
+			public const int search_service = 2131623996;
+			
+			// aapt resource value: 0x7F0E003E
+			public const int status_bar_notification_info_overflow = 2131623998;
+			
+			// aapt resource value: 0x7F0E003F
+			public const int youtube = 2131623999;
 			
 			static String()
 			{
