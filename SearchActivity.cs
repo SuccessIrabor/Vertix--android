@@ -26,8 +26,9 @@ namespace Vertix
 
         protected override void OnNewIntent(Intent intent)
         {
-            HandleIntent(intent);
             base.OnNewIntent(intent);
+            Intent = intent;
+            HandleIntent(intent);
         }
 
         private void HandleIntent(Intent intent)
