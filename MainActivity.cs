@@ -11,6 +11,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
 using Vertix;
 using Xamarin.Essentials;
 
@@ -101,7 +102,9 @@ namespace Vertix
             IMenuItem search = menu.FindItem(Resource.Id.search);
             Android.Support.V7.Widget.SearchView searchView = search.ActionView.JavaCast<Android.Support.V7.Widget.SearchView>();
 
-            searchView.SetSearchableInfo(searchManager.GetSearchableInfo(ComponentName));
+            searchView.SetSearchableInfo(searchManager.GetSearchableInfo(new ComponentName(this, Java.Lang.Class.FromType(typeof(SearchActivity)))));
+
+            //searchView.SetOnQueryTextListener();
 
             return true;
         }
