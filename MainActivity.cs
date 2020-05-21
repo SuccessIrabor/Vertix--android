@@ -105,9 +105,9 @@ namespace Vertix
              * searchView.QueryHint = null;
              */
 
-
-            //searchView.SetOnQueryTextListener();
-            //searchView.SuggestionsAdapter = null;
+            SearchOnClickListener searchListener = new SearchOnClickListener(this);
+            searchView.SetOnSearchClickListener(searchListener);
+            searchView.SetOnCloseListener(searchListener);
 
             return true;
         }
@@ -119,6 +119,7 @@ namespace Vertix
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
+            
             //if (id == Resource.Id.action_settings)
             //{
             //    return true;
