@@ -58,7 +58,7 @@ namespace Vertix
         */
         public void OnClick(View v)
         {
-            parent.Foreground = new ColorDrawable(Android.Graphics.Color.Argb((int)(255 * 0.45), 212, 199, 199));
+            parent.Foreground = new ColorDrawable(Android.Graphics.Color.Argb((int)(255 * 0.5), 0, 0, 0));
         }
         /*
         public void SetJniIdentityHashCode(int value)
