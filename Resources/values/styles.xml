@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--<item name="actionBarPopupTheme">@style/Base.Widget.AppCompat.Light.PopupMenu</item>-->
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -13,8 +14,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+      <item name="android:colorBackground">@android:color/transparent</item>
+      <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+      <item name="android:colorBackground">@android:color/holo_red_light</item>
+      <item name="android:textColorPrimary">#ffa0a0</item>
+    </style>
 
 </resources>

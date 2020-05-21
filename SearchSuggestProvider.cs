@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Java.Security;
 
 namespace Vertix
 {
@@ -23,7 +24,7 @@ namespace Vertix
 
         public override string GetType(Android.Net.Uri uri)
         {
-            throw new NotImplementedException();
+            return "text/plain";
         }
 
         public override Android.Net.Uri Insert(Android.Net.Uri uri, ContentValues values)
@@ -43,11 +44,14 @@ namespace Vertix
             ServiceConnection serviceConnection = new ServiceConnection();
             BindService(serviceIntent, serviceConnection, Bind.AutoCreate);
              */
-
-            MatrixCursor cursor = new MatrixCursor(new string[] { "_ID", "SUGGEST_COLUMN_TEXT_1", "SUGGEST_COLUMN_INTENT_DATA" });
             
-            cursor.AddRow(new Java.Lang.Object[] { "0", "hello", "0/hello" });
-            cursor.AddRow(new Java.Lang.Object[] { "1", "world", "1/world" });
+            MatrixCursor cursor = new MatrixCursor(new string[] { Android.Provider.BaseColumns.Id, SearchManager.SuggestColumnText1, SearchManager.SuggestColumnIntentData }, 0);
+
+            if (!string.IsNullOrWhiteSpace(selectionArgs[0]))
+            {
+                cursor.AddRow(new Java.Lang.Object[] { "0", "hello", "0/hello" });
+                cursor.AddRow(new Java.Lang.Object[] { "1", "world", "1/world" });
+            }
 
             return cursor;
         }
