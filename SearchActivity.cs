@@ -29,7 +29,18 @@ namespace Vertix
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            HandleIntent(Intent);
+            
+            if (Intent.Action == Intent.ActionSearch)
+            {
+                HandleIntent(Intent);
+            }
+
+            if (Intent.Action == Intent.ActionView)
+            {
+                Android.Net.Uri data = Intent.Data;
+                //TODO: create methods HandleSearchIntent and HandleSuggestIntent
+                //HandleSuggestionIntent
+            }
         }
 
         protected override void OnNewIntent(Intent intent)

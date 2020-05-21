@@ -26,9 +26,14 @@ namespace Vertix
             base.OnCreate();
         }
 
-        public void GetSuggestion(string partialQuery)
+        public string GetSuggestion(string partialQuery)
         {
+            string[] projection = {
+                //_ID,
+                //partialQuery
+            };
 
+            return "";
         }
 
         public void GetResult(string query)

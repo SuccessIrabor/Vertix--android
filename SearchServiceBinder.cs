@@ -6,6 +6,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Database;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -19,6 +20,15 @@ namespace Vertix
 
         public SearchServiceBinder(Service service) {
             this.Service = service;
+        }
+
+        public void GetSuggestion(string partialQuery)
+        {
+            /*
+            CursorAdapter neo = new CursorAdapter(new string[] { "_ID", "query" });
+
+            return neo;
+            */
         }
     }
 }

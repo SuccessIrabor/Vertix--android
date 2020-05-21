@@ -105,11 +105,9 @@ namespace Vertix
              * searchView.QueryHint = null;
              */
 
-            Intent serviceIntent = new Intent(this, Vertix.SearchService.JavaType);
-            ServiceConnection serviceConnection = new ServiceConnection();
-            BindService(serviceIntent, serviceConnection, Bind.AutoCreate);
 
             //searchView.SetOnQueryTextListener();
+            //searchView.SuggestionsAdapter = null;
 
             return true;
         }

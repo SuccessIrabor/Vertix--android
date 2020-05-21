@@ -13,27 +13,8 @@ using Java.Interop;
 
 namespace Vertix
 {
-    class ServiceConnection : Java.Lang.Object, IServiceConnection
+    class SearchQueryTextListener : SearchView.IOnQueryTextListener
     {
-        private IBinder _service;
-
-        public IBinder Service
-        {
-            get
-            {
-                return this._service;
-            }
-            private set
-            {
-                this._service = value;
-            }
-        }
-
-        public ServiceConnection() {
-            this.Service = null;
-        }
-
-        /*
         public IntPtr Handle => throw new NotImplementedException();
 
         public int JniIdentityHashCode => throw new NotImplementedException();
@@ -63,19 +44,17 @@ namespace Vertix
         {
             throw new NotImplementedException();
         }
-        */
 
-        public void OnServiceConnected(ComponentName name, IBinder service)
+        public bool OnQueryTextChange(string newText)
         {
-            this.Service = service;
+            return true; //
         }
 
-        public void OnServiceDisconnected(ComponentName name)
+        public bool OnQueryTextSubmit(string query)
         {
-            this.Service = null;
+            return true; //
         }
 
-        /*
         public void SetJniIdentityHashCode(int value)
         {
             throw new NotImplementedException();
@@ -95,6 +74,5 @@ namespace Vertix
         {
             throw new NotImplementedException();
         }
-        */
     }
 }

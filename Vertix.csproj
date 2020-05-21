@@ -75,6 +75,7 @@
     <Compile Include="SearchActivity.cs" />
     <Compile Include="SearchService.cs" />
     <Compile Include="SearchServiceBinder.cs" />
+    <Compile Include="SearchSuggestProvider.cs" />
     <Compile Include="ServiceConnection.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\list_item.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\layout\apps.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_search.xml" />
