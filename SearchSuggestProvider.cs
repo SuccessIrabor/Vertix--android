@@ -47,6 +47,7 @@ namespace Vertix
             MatrixCursor cursor = new MatrixCursor(new string[] { "_ID", "SUGGEST_COLUMN_TEXT_1", "SUGGEST_COLUMN_INTENT_DATA" });
             
             cursor.AddRow(new Java.Lang.Object[] { "0", "hello", "0/hello" });
+            cursor.AddRow(new Java.Lang.Object[] { "1", "world", "1/world" });
 
             return cursor;
         }
